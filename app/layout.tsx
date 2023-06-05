@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import appStyles from './app.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +17,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="my-5 ml-10 flex items-baseline space-x-4">
+          <Link href="/" className={appStyles.link}>
+            Home
+          </Link>
+          <Link href="/notes" className={appStyles.link}>
+            Notes
+          </Link>
+        </nav>
+        {children}
+      </body>
     </html>
   )
 }
